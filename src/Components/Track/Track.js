@@ -1,22 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Track.css";
 
-function Track(){
-	function addOrMinus(prop){
-		if (prop.isRemoval) {
-			return <button className="Track-action">-</button>
-		} else {
-			return <button className="Track-action">+</button>
-		};
-	};
+function Track({track}, key){
 	return(
 		<div className="Track">
 		  <div className="Track-information">
-			<h3></h3>
-			<p> | </p>
+			<h3>{ track.name }</h3>
+			<p>{ track.artist } | { track.album }</p>
 		  </div>
-		  <addOrMinus />
+		  <button className="Track-action">{track.isRemoval ? "-" : "+"}</button>
 		</div>
 	);
 };
