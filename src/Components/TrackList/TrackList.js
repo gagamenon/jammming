@@ -3,13 +3,17 @@ import React, { useState } from "react";
 import "./TrackList.css";
 import Track from "../Track/Track"
 
-function TrackList({ tracks, onAdd }){
+function TrackList({ tracks, onAdd, onRemove, isRemoval }){
 	
 	return(
 		<div className="TrackList">
 		{
 			tracks.map(track => {
-				return <Track track={ track } key={ track.id } onAdd={ onAdd } />;
+				return <Track 	track={ track } 
+								key={ track.id } 
+								onAdd={ onAdd } 
+								onRemove={ onRemove }
+								isRemoval={ isRemoval } />;
 			})
 		}
 		</div>

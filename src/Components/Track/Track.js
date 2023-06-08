@@ -2,18 +2,20 @@ import React, { useState } from "react";
 
 import "./Track.css";
 
-function Track({ track, onAdd }, key){
+function Track({ track, onAdd, onRemove, isRemoval}, key){
 	function addOrRemove(){
-			if(track.isRemoval){
-				return (<button className="Track-action">-</button>);
+			if(isRemoval){
+				return (<button className="Track-action" onClick={removeTrack}>-</button>);
 			} else {
 				return (<button className="Track-action" onClick={addTrack}>+</button>);
 			}
 		
 	}
-	
 	function addTrack(){
 		onAdd(track);
+	};
+	function removeTrack(){
+		onRemove(track);
 	};
 	
 	return(
